@@ -1,0 +1,15 @@
+.am-topbar{
+	border-width:1px 0;
+}
+
+.am-list-news-default .am-list .am-list-thumb img.list-logo{
+	width:20px;
+}
+.list-detail{
+	width:100px;
+	margin:10px;
+}
+.am-u-sm-1{
+	margin:0;
+	padding:0;
+}

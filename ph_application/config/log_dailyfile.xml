@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/" threshold="all">
+	<appender name="inf_app" class="LoggerAppenderDailyFile">
+		<layout class="LoggerLayoutPattern">
+			<param name="conversionPattern" value="%d{Y-m-d H:i:s.u} [%t]  %m%n" />
+		</layout>
+		<param name="datePattern" value="Y-m-d" />
+    	<param name="file" value="logs/info_%s.log" />
+		<filter class="LoggerFilterLevelMatch">
+			<param name="LevelToMatch" value="INFO" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+	<appender name="err_app" class="LoggerAppenderDailyFile">
+		<layout class="LoggerLayoutPattern">
+			<param name="conversionPattern" value="%d{Y-m-d H:i:s.u} [%t]  %m%n" />
+		</layout>
+		<param name="datePattern" value="Y-m-d" />
+    	<param name="file" value="logs/error_%s.log" />
+		<filter class="LoggerFilterLevelRange">
+			<param name="levelMin" value="WARN" />
+			<param name="levelMax" value="FATAL" />
+			<param name="acceptOnMatch" value="true" />
+		</filter>
+	</appender>
+    <logger name="inf">
+    	<appender_ref ref="inf_app" />
+    </logger>
+    <logger name="err">
+    	<appender_ref ref="err_app" />
+    </logger>
+</log4php:configuration>
