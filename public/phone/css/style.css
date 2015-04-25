@@ -1,0 +1,39 @@
+body{
+	background:#f7f7f7;
+}
+.am-topbar-right{
+	float: right;
+	margin-right: 10px;
+}
+.am-tabs-d2 .am-tabs-nav{
+	background-color:transparent;
+}
+[data-am-widget=tabs]{
+	margin:0;
+	padding:5px;
+}
+.am-topbar{
+	margin-bottom:0;
+}
+.border-right{
+	border-right:1px solid #ddd;
+}
+.point_date{
+	font-weight:bolder;
+	text-align:right;
+	margin:5px;
+}
+.point_title button{
+	margin-right:5px;
+}
+.point_content{
+	padding:5px;
+}
+.point_reply p{
+	text-align:right;
+	padding:5px;
+}
+.point_footer{
+	border-top:1px solid #ddd;
+	margin:5px;
+}
