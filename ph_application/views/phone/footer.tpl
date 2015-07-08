@@ -1,4 +1,9 @@
-{require name="{$COMMON_JS_PATH}jquery-1.7.1.min.js"}
-{require name="{$COMMON_JS_PATH}amazeui.min.js"}
+<footer class="footer">
+	<p>CopyRight©2014 AllMobilize Inc.</p>
+    <p>京ICP备XXX</p>
+</footer>
+<script type="text/javascript">
+var base_url = "{base_url()}";
+</script>
 {/body}
 {/html}

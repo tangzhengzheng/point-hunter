@@ -12,6 +12,7 @@ class PH_Controller extends CI_Controller
 	const EXT              = VIEW_EXT;    // 模板后缀名     
 	
 	protected $theme;                     // 模板类别
+	public $userId = '';                  // 用户id
 	
 	/**
 	 * Override this behavior
@@ -46,10 +47,19 @@ class PH_Controller extends CI_Controller
 		header('Pragma: no-cache');
 		
 		$this->load->library(array('Smarty_ext', 'Mobile_detect'));
-		$this->load->helper('language');
-		$this->theme = $this->mobile_detect->isMobile() ? self::VIEW_THEME_PHONE : self::VIEW_THEME_PC;
+		$this->load->helper(array('language', 'tclient', 'url'));	
+		//$this->theme = $this->mobile_detect->isMobile() ? self::VIEW_THEME_PHONE : self::VIEW_THEME_PC;
+		$this->theme = self::VIEW_THEME_PHONE;
 		$this->config->set_item('language', 'ch');
 		$this->lang->load('ch');
+		
+		$this->checkLogin();
+	}
+	
+	private function checkLogin()
+	{
+		$this->load->library('session');
+		$this->userId = $this->session->userdata('uid');
 	}
 	
 	/**
@@ -67,5 +77,13 @@ class PH_Controller extends CI_Controller
 			log_message('error', 'can not find template file['.$path.']');
 			show_error('can not find special template file');
 		}
+	}
+	
+	function send_json($params)
+	{
+		$json = json_encode((array)$params);
+		header('Status: 200 OK');
+		echo $json;
+		exit;
 	}
 }

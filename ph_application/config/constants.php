@@ -100,3 +100,5 @@ define('THRIFT_VERSION', 	'0.8.0');
 define('THRIFT_ROOT', 		THIRD_PATH.'Thrift-'.THRIFT_VERSION.'/');
 define('VIEW_EXT',	'tpl');
 define('DEBUG_MODE',	TRUE);
+define('DAY_NUM',	1);
+define('NEW_POINT_NUM',	10);

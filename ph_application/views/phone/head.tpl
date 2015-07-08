@@ -12,16 +12,26 @@
 {body}
 <header class="am-topbar">
 	<h1 class="am-topbar-brand">
-    	<a href="#">{lang('title')}</a>
+    	<a href="{site_url('home/index')}">{lang('title')}</a>
   	</h1>
   	<div class="am-dropdown am-topbar-right" data-am-dropdown>
-  		<button class="am-btn am-btn-primary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle>更多</button>
+  		<button class="am-btn am-btn-primary am-topbar-btn am-btn-sm am-dropdown-toggle" data-am-dropdown-toggle>{lang('more')}<span class="am-icon-caret-down"></span></button>
   		<ul class="am-dropdown-content">
-    		<li><a href="#">关于</a></li>
-    		<li><a href="#">帮助</a></li>
+    		<li><a href="#">{lang('about')}</a></li>
+    		<li><a href="#">{lang('help')}</a></li>
+    		{if $uid != ''}
+    			<li><a href="{site_url('home/create')}">{lang('create')}</a></li>
+    			<li><a href="{site_url('home/doLogout')}">{lang('logout')}</a></li>
+    		{/if}
   		</ul>
 	</div>
 	<div class="am-topbar-right" style="float:right">
-      <button class="am-btn am-btn-primary am-topbar-btn am-btn-sm">登录</button>
-    </div>
+      {if $uid != ''}
+          <p class="topbar-txt">您好，{$uid}</p>
+      {else}
+          <a href="{site_url('home/login')}" class="am-btn am-btn-primary am-topbar-btn am-btn-sm">{lang('login')}</a>
+      {/if}
+    </div> 
 </header>
+{require name="{$COMMON_JS_PATH}jquery-1.7.1.min.js"}
+{require name="{$COMMON_JS_PATH}amazeui.min.js"}
